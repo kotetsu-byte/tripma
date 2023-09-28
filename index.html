@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tripma Home Page</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/js-datepicker/dist/datepicker.min.js"></script>
+</head>
+<body>
+    <div id="head-suggestion">
+        <a id="head-suggestion__text" href="#">Join Tripma today and save up to 20% on your flight using code TRAVEL at checkout. Promotion valid for new users only.</a>
+        <button onclick="cancelTopSuggestion()" id="head-suggestion__cancel-btn"><span id="head-suggestion__cancel-btn-text">X</span></button>
+    </div>
+    <nav id="tripma-main">
+        <div id="tripma-main__left">
+            <img src="img/main-logo.png" alt="main-logo">
+        </div>
+        <div id="tripma-main__right">
+            <button class="right-btn" id="signup-btn" onclick="openSignupWindow();">Sign up</button>
+            <button class="right-btn">Sign in</button>
+            <button class="right-btn">Packages</button>
+            <button class="right-btn">Hotels</button>
+            <button class="right-btn" id="flights-btn">Flights</button> 
+        </div>
+    </nav>
+    <header id="main-header">
+        <h1>It's more than<br> just a trip</h1>
+    </header>
+    <div id="container">
+        <div id="ticket-search">
+            <div id="ticket-search__searchbar">
+                <div id="from-where-dropdown">
+                    <input type="text" id="from-where" placeholder="From whrere?" onfocus="showFromWhereMenu()" onclick="showFromWhereMenu()">
+                    <div id="from-where-menu" onmouseleave="hideFromWhereMenu()">
+                        <button onclick="inputIntoFromWhere('SFO')"><span>SFO</span></button><br>
+                        <button onclick="inputIntoFromWhere('ATL')"><span>ATL</span></button><br>
+                        <button onclick="inputIntoFromWhere('LAX')"><span>LAX</span></button><br>
+                        <button onclick="inputIntoFromWhere('STL')"><span>STL</span></button><br>
+                        <button onclick="inputIntoFromWhere('PVG')"><span>PVG</span></button><br>
+                        <button onclick="inputIntoFromWhere('MSP')"><span>MSP</span></button><br>
+                        <button onclick="inputIntoFromWhere('NRT')"><span>NRT</span></button>
+                    </div>
+                </div>
+                <div id="where-to-dropdown">
+                    <input type="text" id="where-to" placeholder="Where to?" onfocus="showWhereToMenu()" onclick="showWhereToMenu()">
+                    <div id="where-to-menu" onmouseleave="hideWhereToMenu()">
+                        <button onclick="inputIntoWhereTo('NRT')"><span>NRT</span></button><br>
+                        <button onclick="inputIntoWhereTo('PVG')"><span>PVG</span></button><br>
+                        <button onclick="inputIntoWhereTo('SLT')"><span>STL</span></button><br>
+                        <button onclick="inputIntoWhereTo('ATL')"><span>ATL</span></button><br>
+                        <button onclick="inputIntoWhereTo('MSP')"><span>MSP</span></button><br>
+                        <button onclick="inputIntoWhereTo('SFO')"><span>SFO</span></button><br>
+                        <button onclick="inputIntoWhereTo('JFK')"><span>JFK</span></button>
+                    </div>
+                </div>
+                <div id="trip-option-dropdown">
+                    <select id="trip-option" onchange="convertTripOptionSelection(this.options[this.selectedIndex].value)">
+                        <option value="one-way">One Way</option>
+                        <option value="round-trip">Round trip</option>
+                    </select>
+                </div>
+                <div id="oneway-date-dropdown">
+                    <input type="date" id="oneway-date" placeholder="One way">
+                </div>
+                <div id="backway-date-dropdown">
+                    <input type="date" id="backway-date" placeholder="Return">
+                </div>
+                <div id="number-of-people-dropdown">
+                    <input type="text" id="number-of-people" placeholder="Number of people" onfocus="showNumberOfPeopleMenu()" onclick="showNumberOfPeopleMenu()" readonly>
+                    <div id="number-of-people-menu" onmouseleave="hideNumberOfPeopleMenu()">
+                        <div class="flex-items">
+                            <span class="left-align">Adults:</span>
+                            <div class="right-align">
+                                <button onclick="decreaseNumberOfAdults()">-</button>
+                                <span id="number-of-adults">0</span>
+                                <button onclick="increaseNumberOfAdults()">+</button>
+                            </div>
+                        </div>
+                        <div class="flex-items">
+                            <span class="left-align">Minors:</span>
+                            <div class="right-align">
+                                <button onclick="decreaseNumberOfMinors()">-</button>
+                                <span id="number-of-minors">0</span>
+                                <button onclick="increaseNumberOfMinors()">+</button>
+                            </div>
+                        </div>
+                        <button id="clear-btn" onclick="clearNumberOfPeople()">Clear</button>
+                    </div>    
+                </div>
+                <button onclick="sendUserSearchData()" id="search-btn">Search</button>
+            </div>
+            <div id="ticket-search__results">
+                <div id="ticket-search__filter">
+                    <select class="filter-item">
+                        <option selected>Max price</option>
+                    </select>
+                    <select class="filter-item">
+                        <option selected>Shops</option>
+                    </select>
+                    <select class="filter-item">
+                        <option selected>Times</option>
+                    </select>
+                    <select class="filter-item">
+                        <option selected>Airlines</option>
+                    </select>
+                    <select class="filter-item">
+                        <option selected>Seat class</option>
+                    </select>
+                    <select class="filter-item">
+                        <option selected>More</option>
+                    </select>
+                </div>
+                <div id="ticket-search__data">
+                    <div id="ticket-search__left-side">
+                        <h5 style="color: #6E7491; font-weight: 600; font-size: 18px;">Choose a <span style="color: #605DEC;">departing</span> flight</h5>
+                        <table id="ticket-search__table">
+                            <tr style="cursor: pointer; border: 1px dashed grey;" onclick="showFlightDetails('img/airline-logos/hawaiian.png', 'Hawaiian Airlines', '16h 45m', '7:00AM - 4:15PM', '2h 45m in HNL', '$624');">
+                                <td><img src="img/airline-logos/hawaiian.png" alt=""></td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>16h 45m</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hawaiian Airlines</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="top-align">
+                                    <table>
+                                        <tr>
+                                            <td>7:00AM - 4:15PM</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>1 stop</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2h 45m in HNL</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>$624</td>
+                                        </tr>
+                                        <tr>
+                                            <td>round trip</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer; border: 1px dashed grey;" onclick="showFlightDetails('img/airline-logos/japan.png', 'Japan Airlines', '18h 22m', '7:35 AM - 12:15 PM', '50m in HKG', '$663');">
+                                <td><img src="img/airline-logos/japan.png" alt=""></td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>18h 22m</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Japan Airlines</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="top-align">
+                                    <table>
+                                        <tr>
+                                            <td>7:35 AM - 12:15 PM</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>1 stop</td>
+                                        </tr>
+                                        <tr>
+                                            <td>50m in HKG</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>$663</td>
+                                        </tr>
+                                        <tr>
+                                            <td>round trip</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer; border: 1px dashed grey;" onclick="showFlightDetails('img/airline-logos/hawaiian.png', 'Hawaiian Airlines', '18h 04m', '8:20 AM - 2:15 PM', '1h 50m in PVG', '$690');">
+                                <td><img src="img/airline-logos/hawaiian.png" alt=""></td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>18h 04m</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hawaiian Airlines</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="top-align">
+                                    <table>
+                                        <tr>
+                                            <td>8:20 AM - 2:15 PM</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>1 stop</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1h 50m in PVG</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>$690</td>
+                                        </tr>
+                                        <tr>
+                                            <td>round trip</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer; border: 1px dashed grey;" onclick="showFlightDetails('img/airline-logos/delta.jpg', 'Delta', '18h 52m', '9:47 AM - 4:15 PM', '4h 05m in ICN', '$756');">
+                                <td><img src="img/airline-logos/delta.jpg" alt="" width="40" height="40"></td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>18h 52m</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Delta</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="top-align">
+                                    <table>
+                                        <tr>
+                                            <td>9:47 AM - 4:15 PM</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>1 stop</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4h 05m in ICN</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>$756</td>
+                                        </tr>
+                                        <tr>
+                                            <td>round trip</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer; border: 1px dashed grey;" onclick="showFlightDetails('img/airline-logos/hawaiian-2.png', 'Hawaiian Airlines', '16h 05m', '11:15 AM - 7:45 PM', 'Nonstop', '$837');">
+                                <td><img src="img/airline-logos/hawaiian-2.png" alt=""></td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>16h 05m</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hawaiian Airlines</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="top-align">
+                                    <table>
+                                        <tr>
+                                            <td>11:15 AM - 7:45 PM</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td class="top-align">Nonstop</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>$837</td>
+                                        </tr>
+                                        <tr>
+                                            <td>round trip</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer; border: 1px dashed grey;" onclick="showFlightDetails('img/airline-logos/image 28.png', '', '15h 45m', '10:55 AM - 8:15 PM', 'Nonstop', '$839');">
+                                <td><img src="img/airline-logos/image 28.png" alt=""></td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td class="top-align">15h 45m</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="top-align">
+                                    <table>
+                                        <tr>
+                                            <td>10:55 AM - 8:15 PM</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td class="top-align">Nonstop</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td class="top-align">$839</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="text-align: right;">
+                            <button style="font-size: 18px; font-weight: 400; color: #605DEC; border: 1px solid #605DEC; border-radius: 4px; padding: 4px;">Show all flights</button>
+                        </div>
+                        <div id="ticket-search__map" style="margin-top: 30px;">
+                            <img src="img/Map.png" width="90%">
+                        </div>
+                    </div>
+                    <div id="ticket-search__right-side">
+                        <div id="right-side__div1">
+                            <div id="ticket-search__price-grid">
+                                <h5 style="color: #6E7491; font-weight: 600; font-size: 18px;">Price grid <span style="color: #7C8DB0; font-weight: 400;">(flexible dates)</span></h5>
+                                <table id="ticket-search__price-grid__table">
+                                    <tr>
+                                        <td></td>
+                                        <th>2/12</th>
+                                        <th>2/13</th>
+                                        <th>2/14</th>
+                                        <th>2/15</th>
+                                        <th>2/16</th>
+                                    </tr>
+                                    <tr>
+                                        <th>3/7</th>
+                                        <td>$837</td>
+                                        <td>$592</td>
+                                        <td>$592</td>
+                                        <td>$1,308</td>
+                                        <td>$837</td>
+                                    </tr>
+                                    <tr>
+                                        <th>3/8</th>
+                                        <td>$837</td>
+                                        <td>$592</td>
+                                        <td>$592</td>
+                                        <td>$837</td>
+                                        <td>$1,308</td>
+                                    </tr>
+                                    <tr>
+                                        <th>3/9</th>
+                                        <td>$624</td>
+                                        <td>$592</td>
+                                        <td>$624</td>
+                                        <td>$592</td>
+                                        <td>$592</td>
+                                    </tr>
+                                    <tr>
+                                        <th>3/10</th>
+                                        <td>$1,308</td>
+                                        <td>$624</td>
+                                        <td>$624</td>
+                                        <td>$837</td>
+                                        <td>$837</td>
+                                    </tr>
+                                    <tr>
+                                        <th>3/11</th>
+                                        <td>$592</td>
+                                        <td>$624</td>
+                                        <td>$1,308</td>
+                                        <td>$837</td>
+                                        <td>$624</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="ticket-search__price-history">
+                                <h5 style="color: #6E7491; font-weight: 600; font-size: 18px;">Price history</h5>
+                                <img src="img/Price History.png" alt="">
+                            </div>
+                            <div id="ticket-search__price-search" style="overflow-wrap: break-word;">
+                                <h5 style="color: #6E7491; font-size: 18px; font-weight: 600; display: inline-block;">Price rating</h5>
+                                <button style="display: inline-block; color: white; background: #5CD6C0; padding: 2px 8px; border: none; border-radius: 4px; margin-left: 10px;">Buy soon</button>
+                                <p style="color: #6E7491; font-weight: 600; overflow-wrap: break-word;">We recommend booking soon. The average cost of this<br> flight is $750, but could rise 18% to $885 in two weeks.</p>
+                                <p style="color: #A1B0CC; font-weight: 300; overflow-wrap: break-word;">Tripma analyzes thousands of flights, prices, and trends<br> to ensure you get the best deal.</p>
+                            </div>
+                        </div>
+                        <div id="right-side__div2">
+                            <div id="ticket-search__details">
+                                <div id="ticket-search__details__data">
+                                    <div id="ticket-search__details__data__col-1">
+                                        <img id="flight-img" src="img/airline-logos/hawaiian.png" alt="">
+                                    </div>
+                                    <div id="ticket-search__details__data__col-2">
+                                        <p id="flight-title">Hawaiian Airlines</p>
+                                        <p id="flight-key">FIG4312</p>
+                                    </div>
+                                    <div id="ticket-search__details__data__col-3">
+                                        <p id="flight-duration">16h 45m (+1d)</p>
+                                        <p id="flight-timetable">7:00 AM - 4:15 PM</p>
+                                        <p id="stop-duration">2h 45m in HNL</p>
+                                    </div>
+                                </div>
+                                <div id="ticket-search__details__prices">
+                                    <div id="ticket-search__details__prices__col-1">
+                                        <p id="p1">Subtotal</p>
+                                        <p id="p2">Taxes and Fees</p>
+                                        <p id="p3">Total</p>
+                                    </div>
+                                    <div id="ticket-search__details__prices__col-2">
+                                        <p id="p1">$503</p>
+                                        <p id="p2">$121</p>
+                                        <p id="p3">$624</p>
+                                    </div>
+                                </div>
+                                <div style="text-align: right; padding: 16px;">
+                                    <button onclick="closeFlightDetails()" style="color: #605DEC; font-size: 18px; font-weight: 400; border: 1px solid #605DEC; border-radius: 4px; padding: 4px; margin-bottom: 10px;">Save and close</button>
+                                    <button onclick="redirectToPassengerInfo(document.querySelector('#flight-img').src, document.querySelector('#flight-title').innerHTML, document.querySelector('#flight-duration').innerHTML, document.querySelector('#flight-timetable').innerHTML, document.querySelector('#stop-duration').innerHTML, document.querySelector('#ticket-search__details__prices__col-2 > #p3').innerHTML)" style="color: white; font-size: 18px; font-weight: 400; padding: 6px 10px; background: #605DEC; border-radius: 4px; border: none;" ondblclick="redirectToPassengerInfo()">Passenger Information</button>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="tripma-gallery">
+            <h5 class="main-header">Find your next adventure with these <a class="main-header__ref1" href="#">flight deals</a></h5>
+            <a href="#" class="main-header__all-link"><h5>All <img class="main-header__all-link__icon" src="icons/right-arrow.png"></h5></a>
+            <div id="tripma-gallery__top-3-images">
+                <div class="short-image">
+                    <img src="img/gallery-top-1.png">
+                    <div class="short-image__details">
+                        <p class="title">The Bund, <a href="#">Shanghai</a></p>
+                        <p class="price">$598</p>
+                        <p class="description">China’s most international city</p>
+                    </div>
+                </div>
+                <div class="short-image">
+                    <img src="img/gallery-top-2.png">
+                    <div class="short-image__details">
+                        <p class="title">Sydney Opera House, <a href="#">Sydney</a></p>
+                        <p class="price">$981</p>
+                        <p class="description">Take a stroll along the famous harbor</p>
+                    </div>
+                </div>
+                <div class="short-image">
+                    <img src="img/gallery-top-3.png">
+                    <div class="short-image__details">
+                        <p class="title">Kōdaiji Temple, <a href="#">Kyoto</a></p>
+                        <p class="price">$633</p>
+                        <p class="description">Step back in time in the Gion district</p>
+                    </div>
+                </div>
+            </div>
+            <div id="tripma-gallery__middle-1-image">
+                <div class="big-image">
+                    <img src="img/gallery-middle.png">
+                    <div class="big-image__details">
+                        <p class="title">Tsavo East National Park, <a href="#">Kenya</a></p>
+                        <p class="price">$1,248</p>
+                        <p class="description">Named after the Tsavo River, and opened in April 1984, Tsavo East National Park is one of the oldest parks in Kenya. It is located in the semi-arid Taru Desert.</p>
+                    </div>
+                </div>
+            </div>
+            <h5 class="main-header">Explore unique <a class="main-header__ref2" href="#">places to stay</a></h5>
+            <a href="#" class="main-header__all-link"><h5>All <img class="main-header__all-link__icon" src="icons/right-arrow.png"></h5></a>
+            <div id="tripma-gallery__bottom-3-images">
+                <div class="short-image">
+                    <img src="img/gallery-bottom-1.png">
+                    <div class="short-image__details">
+                        <p class="title">Stay among the atolls in <a href="#">Maldives</a></p>
+                        <p class="description">From the 2nd century AD, the islands were known as the 'Money Isles' due to the abundance of cowry shells, a currency of the early ages.</p>
+                    </div>
+                </div>
+                <div class="short-image">
+                    <img src="img/gallery-bottom-2.png">
+                    <div class="short-image__details">
+                        <p class="title">Experience the Ourika Valley in <a href="#">Morocco</a></p>
+                        <p class="description">Morocco’s Hispano-Moorish architecture blends influences from Berber culture, Spain, and contemporary artistic currents in the Middle East.</p>
+                    </div>
+                </div>
+                <div class="short-image">
+                    <img src="img/gallery-bottom-3.png">
+                    <div class="short-image__details">
+                        <p class="title">Live traditionally in <a href="#">Mongolia</a></p>
+                        <p class="description">Traditional Mongolian yurts consists of an angled latticework of wood or bamboo for walls, ribs, and a wheel.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="button-wrapper-center">
+                <button>Explore more stays</button>
+            </div>
+        </div>
+        <div id="comments">
+            <h5 id="comments__header">What <a id="comments__header__link" href="index.html">Tripma</a> users are saying</h5>
+            <div id="comments__section">
+                <div class="comment">
+                    <div class="comment__col-1">
+                        <img class="comment__user-avatar" src="icons/user-1.png">
+                    </div>
+                    <div class="comment__col-2">
+                        <p class="comment__username">Yifei Chen</p>
+                        <p class="comment__user-details">Seoul, South Korea <span class="color-2">|</span> April 2019</p>
+                        <p class="comment__user-rating"><img src="icons/star-filled.png"><img src="icons/star-filled.png"><img src="icons/star-filled.png"><img src="icons/star-filled.png"><img src="icons/star-filled.png"></p>
+                        <p class="comment__user-comment">What a great experience using Tripma! I booked all of my flights for my gap year through Tripma and never had any issues. When I had to cancel a flight because of an emergency, Tripma support helped me <span class="color-2">read more...</span></p>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment__col-1">
+                        <img class="comment__user-avatar" src="icons/user-2.png">
+                    </div>
+                    <div class="comment__col-2">
+                        <p class="comment__username">Kaori Yamaguchi</p>
+                        <p class="comment__user-details">Honolulu, Hawaii <span class="color-2">|</span> February 2017</p>
+                        <p class="comment__user-rating"><img src="icons/star-filled.png"><img src="icons/star-filled.png"><img src="icons/star-filled.png"><img src="icons/star-filled.png"><img src="icons/star-unfilled.png"></p>
+                        <p class="comment__user-comment">My family and I visit Hawaii every year, and we usually book our flights using other services. Tripma was recommened to us by a long time friend, and I’m so glad we tried it out! The process was easy and <span class="color-2">read more...</span></p>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment__col-1">
+                        <img class="comment__user-avatar" src="icons/user-3.png">
+                    </div>
+                    <div class="comment__col-2">
+                        <p class="comment__username">Anthony Lewis</p>
+                        <p class="comment__user-details">Berlin, Germany <span class="color-2">|</span> April 2019</p>
+                        <p class="comment__user-rating"><img src="icons/star-filled.png"><img src="icons/star-filled.png"><img src="icons/star-filled.png"><img src="icons/star-filled.png"><img src="icons/star-filled.png"></p>
+                        <p class="comment__user-comment">When I was looking to book my flight to Berlin from LAX, Tripma had the best browsing experiece so I figured I’d give it a try. It was my first time using Tripma, but I’d definitely recommend it to a friend and use it for <span class="color-2">read more...</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer id="footer-1">
+            <div class="col">
+                <img src="img/main-logo.png">
+            </div>
+            <div class="col">
+                <span class="col__header">About</span><br>
+                <a class="col__link" href="#">About Tripma</a><br>
+                <a class="col__link" href="#">How it works</a><br>
+                <a class="col__link" href="#">Careers</a><br>
+                <a class="col__link" href="#">Press</a><br>
+                <a class="col__link" href="#">Blog</a><br>
+                <a class="col__link" href="#">Forum</a>
+            </div>
+            <div class="col">
+                <span class="col__header">Partner with us</span><br>
+                <a class="col__link" href="#">Partnership programs</a><br>
+                <a class="col__link" href="#">Affiliate program</a><br>
+                <a class="col__link" href="#">Connectivity partners</a><br>
+                <a class="col__link" href="#">Promotions and events</a><br>
+                <a class="col__link" href="#">Integrations</a><br>
+                <a class="col__link" href="#">Community</a><br>
+                <a class="col__link" href="#">Loyalty program</a>
+            </div>
+            <div class="col">
+                <span class="col__header">Support</span><br>
+                <a class="col__link" href="#">Help Center</a><br>
+                <a class="col__link" href="#">Contact us</a><br>
+                <a class="col__link" href="#">Privacy policy</a><br>
+                <a class="col__link" href="#">Terms of service</a><br>
+                <a class="col__link" href="#">Trust and safety</a><br>
+                <a class="col__link" href="#">Accessibility</a>
+            </div>
+            <div class="col">
+                <span class="col__header">Get the app</span><br>
+                <a class="col__link" href="#">Tripma for Android</a><br>
+                <a class="col__link" href="#">Tripma for iOS</a><br>
+                <a class="col__link" href="#">Mobile site</a><br><br>
+                <img src="icons/app-store.png"><br>
+                <img src="icons/google-play.png">
+            </div>
+        </footer>
+    </div>
+    <hr>
+    <footer id="footer-2">
+        <div class="col" id="col-1">
+            <img src="icons/twitter-grey.png">
+            <img src="icons/instagram-grey.png" height="20">
+            <img src="icons/facebook-grey.png">
+        </div>
+        <div class="col" id="col-2">
+            <p id="copyright">© 2020 Tripma incorporated</p>
+        </div>
+    </footer>
+
+    <div id="signup-window">
+        <h3 id="signup-window__header">Sign up for Tripma</h3>
+        <button id="signup-window__close-btn" onclick="closeSignupWindow()">X</button>
+        <p id="signup-window__description">Tripma is totally free to use. Sign up using your email address or phone number below to get started.</p>
+        <input type="text" id="signup-window__login" placeholder="Email or phone number"><br>
+        <input type="password" id="signup-window__password" placeholder="Password"><br>
+        <input type="checkbox" id="signup-window__terms-check"> <span class="check-text">I agree to the <a href="#" id="signup-window__terms">terms and conditions</a></span><br>
+        <input type="checkbox" id="signup-window__alerts-check"> <span class="check-text">Send me the latest deal alerts</span><br>
+        <button id="signup-window__create-btn">Create account</button>
+        <button class="external-login"><img class="sign-in-icon" src="icons/google-icon.png" width="15px" height="15px" /><span class="sign-in-text">Continue with Google</span></button>
+        <button class="external-login"><img class="sign-in-icon" src="icons/apple-icon.png" /><span class="sign-in-text">Continue with Apple</span></button>
+        <button class="external-login"><img class="sign-in-icon" src="icons/facebook-icon.png" /><span class="sign-in-text">Continue with Facebook</span></button>
+    </div>
+    <div id="cookies">
+        <span id="cookies__text">By using our site, you<br> agree to eat our cookies.</span>
+        <button onclick="cancelCookies()" id="cookies__cancel-btn">X</button><br>
+        <button class="btn" id="cookies__accept-btn" onclick="cancelCookies()">Accept cookies</button>
+        <button class="btn" onclick="cancelCookies()">Go to settings</button>
+    </div>
+    
+</body>
+</html>

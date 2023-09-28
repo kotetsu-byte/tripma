@@ -1,0 +1,261 @@
+#tripma-main {
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#tripma-main__left {
+  width: 49%;
+  display: inline-block;
+}
+#tripma-main__right {
+  width: 49%;
+}
+#tripma-main__right .right-btn {
+  display: inline-block;
+  float: right;
+  background-color: inherit;
+  border: none;
+  color: #7C8DB0;
+  padding: 10px 20px;
+}
+#tripma-main__right .right-btn #flights-btn {
+  color: #605DEC;
+}
+#tripma-main__right #signup-btn {
+  color: white;
+  background: #605DEC;
+  border-radius: 4px;
+  border: none;
+}
+
+#container {
+  padding: 20px 40px;
+}
+#container #two-blocks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#container #two-blocks #left-block .typical-input {
+  border: 1px solid #A1B0CC;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 8px;
+}
+#container #two-blocks #right-block #ticket-search__details__data {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid #E9E8FC;
+  border-radius: 12px;
+  padding: 16px;
+}
+#container #two-blocks #right-block #ticket-search__details__data__col-2 #flight-title {
+  color: #27273F;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+#container #two-blocks #right-block #ticket-search__details__data__col-2 #flight-key {
+  color: #7C8DB0;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+#container #two-blocks #right-block #ticket-search__details__data__col-3 #flight-duration {
+  color: #27273F;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+#container #two-blocks #right-block #ticket-search__details__data__col-3 #flight-timetable {
+  color: #27273F;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+#container #two-blocks #right-block #ticket-search__details__data__col-3 #stop-duration {
+  color: #7C8DB0;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+#container #two-blocks #right-block #ticket-search__details__prices {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 16px;
+}
+#container #two-blocks #right-block #ticket-search__details__prices__col-1 {
+  text-align: right;
+  width: 70%;
+}
+#container #two-blocks #right-block #ticket-search__details__prices__col-1 #p1 {
+  color: #27273F;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+#container #two-blocks #right-block #ticket-search__details__prices__col-1 #p2 {
+  color: #27273F;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+#container #two-blocks #right-block #ticket-search__details__prices__col-1 #p3 {
+  color: #27273F;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+#container #two-blocks #right-block #ticket-search__details__prices__col-2 #p1 {
+  color: #27273F;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+#container #two-blocks #right-block #ticket-search__details__prices__col-2 #p2 {
+  color: #27273F;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+#container #two-blocks #right-block #ticket-search__details__prices__col-2 #p3 {
+  color: #27273F;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+#container #second-two-blocks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#container #second-two-blocks #left {
+  width: 20%;
+}
+#container #footer-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#container #footer-1 .col {
+  width: 15%;
+}
+#container #footer-1 .col__header {
+  font-size: 18px;
+  font-weight: 700;
+  color: #6E7491;
+}
+#container #footer-1 .col__link {
+  font-size: 16px;
+  font-weight: 400;
+  color: #7C8DB0;
+  text-decoration: none;
+}
+#container #footer-1 .col:first-child img {
+  margin: auto;
+}
+
+#footer-2 {
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#footer-2 .col {
+  width: 45%;
+}
+#footer-2 #col-2 {
+  text-align: right;
+}
+#footer-2 #col-2 #copyright {
+  font-size: 18px;
+  font-weight: 400;
+  color: #7C8DB0;
+}
+
+#signup-window {
+  display: none;
+  position: fixed;
+  padding: 40px;
+  width: 40%;
+  height: max-content;
+  left: 30%;
+  bottom: 15%;
+  background: #FFFFFF;
+  border: 1px solid #CBD4E6;
+  box-shadow: 0px 2px 4px rgba(7, 4, 146, 0.1), 0px 24px 60px rgba(6, 47, 125, 0.05), 0px 12px 24px rgba(27, 59, 119, 0.05);
+  border-radius: 12px;
+  z-index: 1;
+}
+#signup-window__header {
+  width: max-content;
+  display: inline-block;
+}
+#signup-window__close-btn {
+  height: max-content;
+  display: inline-block;
+  float: right;
+  border: none;
+  background: inherit;
+}
+#signup-window__description {
+  color: #7C8DB0;
+}
+#signup-window__login, #signup-window__password {
+  color: #A1B0CC;
+  border: 1px solid #A1B0CC;
+  border-radius: 4px;
+  padding: 8px 12px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+#signup-window__login::placeholder, #signup-window__password::placeholder {
+  color: #7C8DB0;
+}
+#signup-window__terms-check, #signup-window__alerts-check {
+  color: #6E7491;
+}
+#signup-window .check-text {
+  color: #6E7491;
+}
+#signup-window__terms {
+  color: #605DEC;
+  text-decoration: none;
+}
+#signup-window__create-btn {
+  background: #605DEC;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  width: 100%;
+  height: 40px;
+}
+#signup-window .external-login {
+  width: 100%;
+  border: 1px solid #CBD4E6;
+  border-radius: 4px;
+  color: #605DEC;
+  height: 40px;
+  margin-top: 5px;
+}
+#signup-window .external-login .sign-in-icon {
+  margin-top: 4px;
+  float: left;
+  text-align: left;
+}
+
+/*# sourceMappingURL=passenger-info.css.map */

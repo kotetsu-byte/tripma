@@ -1,0 +1,762 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #E5E5E5;
+  gap: 20px;
+}
+
+#head-suggestion {
+  padding: 20px 40px;
+  background: #605DEC;
+  text-align: center;
+}
+#head-suggestion__text {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+}
+#head-suggestion__cancel-btn {
+  float: right;
+  background: inherit;
+  border: none;
+}
+#head-suggestion__cancel-btn-text {
+  color: white;
+  font-size: 15px;
+  padding: 0px 0px;
+  vertical-align: top;
+}
+
+#tripma-main {
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#tripma-main__left {
+  width: 49%;
+  display: inline-block;
+}
+#tripma-main__right {
+  width: 49%;
+}
+#tripma-main__right .right-btn {
+  display: inline-block;
+  float: right;
+  background-color: inherit;
+  border: none;
+  color: #7C8DB0;
+  padding: 10px 20px;
+}
+#tripma-main__right .right-btn #flights-btn {
+  color: #605DEC;
+}
+#tripma-main__right #signup-btn {
+  color: white;
+  background: #605DEC;
+  border-radius: 4px;
+  border: none;
+}
+
+#main-header {
+  text-align: center;
+  margin: 100px 0;
+}
+#main-header h1 {
+  color: #605DEC;
+  font-size: 90px;
+}
+
+#container {
+  padding: 20px 40px;
+}
+#container #two-blocks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#container #ticket-search {
+  min-height: 400px;
+}
+#container #ticket-search__searchbar {
+  text-align: center;
+}
+#container #ticket-search__searchbar #from-where-dropdown {
+  position: relative;
+  display: inline-block;
+}
+#container #ticket-search__searchbar #from-where {
+  background: url(icons/from-where.png) no-repeat 2px 10px;
+  background-size: 20px 20px;
+  padding: 8px 12px;
+  width: 150px;
+  padding-left: 30px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(7, 4, 146, 0.1), 0px 24px 60px rgba(6, 47, 125, 0.05), 0px 12px 24px rgba(27, 59, 119, 0.05);
+}
+#container #ticket-search__searchbar #from-where-menu {
+  display: none;
+  position: absolute;
+  right: 0px;
+  border: none;
+  padding: 16px;
+  width: 100px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(7, 4, 146, 0.1), 0px 24px 60px rgba(6, 47, 125, 0.05), 0px 12px 24px rgba(27, 59, 119, 0.05);
+  z-index: 1;
+}
+#container #ticket-search__searchbar #from-where-menu button {
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  background: #FFFFFF;
+}
+#container #ticket-search__searchbar #from-where-menu button span {
+  float: left;
+}
+#container #ticket-search__searchbar #from-where-menu button:hover {
+  background: #605DEC;
+  color: white;
+}
+#container #ticket-search__searchbar #from-where-menu #cancel {
+  width: initial;
+}
+#container #ticket-search__searchbar #where-to-dropdown {
+  position: relative;
+  display: inline-block;
+}
+#container #ticket-search__searchbar #where-to {
+  background: url(icons/from-where.png) no-repeat 2px 10px;
+  background-size: 20px 20px;
+  padding: 8px 12px;
+  padding-left: 30px;
+  width: 150px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(7, 4, 146, 0.1), 0px 24px 60px rgba(6, 47, 125, 0.05), 0px 12px 24px rgba(27, 59, 119, 0.05);
+}
+#container #ticket-search__searchbar #where-to-menu {
+  display: none;
+  position: absolute;
+  right: 0px;
+  border: none;
+  padding: 16px;
+  width: 100px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(7, 4, 146, 0.1), 0px 24px 60px rgba(6, 47, 125, 0.05), 0px 12px 24px rgba(27, 59, 119, 0.05);
+  z-index: 1;
+}
+#container #ticket-search__searchbar #where-to-menu button {
+  border: none;
+  border-radius: 4px;
+  background: #FFFFFF;
+  width: 100%;
+}
+#container #ticket-search__searchbar #where-to-menu button span {
+  float: left;
+}
+#container #ticket-search__searchbar #where-to-menu button:hover {
+  background: #605DEC;
+  color: white;
+}
+#container #ticket-search__searchbar #where-to-menu #cancel {
+  width: initial;
+}
+#container #ticket-search__searchbar #trip-option-dropdown {
+  display: inline-block;
+  position: relative;
+}
+#container #ticket-search__searchbar #trip-option {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  width: 150px;
+  box-shadow: 0px 2px 4px rgba(7, 4, 146, 0.1), 0px 24px 60px rgba(6, 47, 125, 0.05), 0px 12px 24px rgba(27, 59, 119, 0.05);
+}
+#container #ticket-search__searchbar #oneway-date-dropdown {
+  position: relative;
+  display: inline-block;
+}
+#container #ticket-search__searchbar #oneway-date {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  width: 150px;
+  box-shadow: 0px 2px 4px rgba(7, 4, 146, 0.1), 0px 24px 60px rgba(6, 47, 125, 0.05), 0px 12px 24px rgba(27, 59, 119, 0.05);
+}
+#container #ticket-search__searchbar #backway-date-dropdown {
+  position: relative;
+  display: inline-block;
+  display: none;
+}
+#container #ticket-search__searchbar #backway-date {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(7, 4, 146, 0.1), 0px 24px 60px rgba(6, 47, 125, 0.05), 0px 12px 24px rgba(27, 59, 119, 0.05);
+}
+#container #ticket-search__searchbar #number-of-people-dropdown {
+  position: relative;
+  display: inline-block;
+}
+#container #ticket-search__searchbar #number-of-people {
+  background: url(icons/person.png) no-repeat 2px 10px;
+  background-size: 20px 20px;
+  padding: 8px 12px;
+  padding-left: 30px;
+  width: 150px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(7, 4, 146, 0.1), 0px 24px 60px rgba(6, 47, 125, 0.05), 0px 12px 24px rgba(27, 59, 119, 0.05);
+}
+#container #ticket-search__searchbar #number-of-people-menu {
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
+  right: 0px;
+  padding: 16px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(7, 4, 146, 0.1), 0px 24px 60px rgba(6, 47, 125, 0.05), 0px 12px 24px rgba(27, 59, 119, 0.05);
+  width: 150px;
+  z-index: 1;
+}
+#container #ticket-search__searchbar #number-of-people-menu .flex-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#container #ticket-search__searchbar #number-of-people-menu button {
+  border: none;
+  border-radius: 4px;
+  background: #ffffff;
+}
+#container #ticket-search__searchbar #number-of-people-menu button:hover {
+  background: #605DEC;
+  color: white;
+}
+#container #ticket-search__searchbar #number-of-people-menu #clear-btn {
+  width: 100%;
+  color: white;
+  background: #605DEC;
+}
+#container #ticket-search__searchbar #search-btn {
+  border: none;
+  background: #605DEC;
+  color: white;
+  border-radius: 4px;
+  padding: 8px 20px;
+}
+#container #ticket-search__results {
+  display: none;
+  margin: 30px 0;
+}
+#container #ticket-search__results #ticket-search__filter {
+  margin-bottom: 30px;
+}
+#container #ticket-search__results #ticket-search__filter .filter-item {
+  border: 1px solid #CBD4E6;
+  border-radius: 4px;
+  padding: 8px 12px 8px 16px;
+}
+#container #ticket-search__results #ticket-search__data {
+  display: flex;
+  flex-direction: row;
+  justify-items: space-between;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__left-side #ticket-search__table {
+  padding: 16px;
+  table-layout: fixed;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__left-side #ticket-search__table td {
+  padding: 4px 16px;
+  border-collapse: collapse;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__left-side #ticket-search__table .top-align {
+  vertical-align: top;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div1 #ticket-search__price-grid__table {
+  border: 1px solid #E9E8FC;
+  padding: 1px;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div1 #ticket-search__price-grid__table th {
+  padding: 10px;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div1 #ticket-search__price-grid__table td {
+  padding: 10px;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div1 #ticket-search__price-history {
+  margin-top: 30px;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div1 #ticket-search__price-search {
+  margin-top: 30px;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div2 {
+  display: none;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div2 #ticket-search__details__data {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid #E9E8FC;
+  border-radius: 12px;
+  padding: 16px;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div2 #ticket-search__details__data__col-2 #flight-title {
+  color: #27273F;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div2 #ticket-search__details__data__col-2 #flight-key {
+  color: #7C8DB0;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div2 #ticket-search__details__data__col-3 #flight-duration {
+  color: #27273F;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div2 #ticket-search__details__data__col-3 #flight-timetable {
+  color: #27273F;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div2 #ticket-search__details__data__col-3 #stop-duration {
+  color: #7C8DB0;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div2 #ticket-search__details__prices {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 16px;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div2 #ticket-search__details__prices__col-1 {
+  text-align: right;
+  width: 70%;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div2 #ticket-search__details__prices__col-1 #p1 {
+  color: #27273F;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div2 #ticket-search__details__prices__col-1 #p2 {
+  color: #27273F;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div2 #ticket-search__details__prices__col-1 #p3 {
+  color: #27273F;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div2 #ticket-search__details__prices__col-2 #p1 {
+  color: #27273F;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div2 #ticket-search__details__prices__col-2 #p2 {
+  color: #27273F;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+#container #ticket-search__results #ticket-search__data #ticket-search__right-side #right-side__div2 #ticket-search__details__prices__col-2 #p3 {
+  color: #27273F;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+#container #tripma-gallery {
+  margin: 20px 0;
+}
+#container #tripma-gallery .main-header {
+  color: #6E7491;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+#container #tripma-gallery .main-header__ref1 {
+  color: #605DEC;
+  text-decoration: none;
+}
+#container #tripma-gallery .main-header__ref2 {
+  color: #5CD6C0;
+  text-decoration: none;
+}
+#container #tripma-gallery .main-header__all-link {
+  color: #A1B0CC;
+  display: inline-block;
+  float: right;
+  text-decoration: none;
+}
+#container #tripma-gallery .main-header__all-link__icon {
+  vertical-align: -1px;
+}
+#container #tripma-gallery__top-3-images {
+  display: flex;
+  margin: 0;
+  margin-bottom: 20px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#container #tripma-gallery__top-3-images .short-image {
+  box-shadow: 0px 2px 4px rgba(7, 4, 146, 0.1), 0px 24px 60px rgba(6, 47, 125, 0.05), 0px 12px 24px rgba(27, 59, 119, 0.05);
+  width: 30%;
+  border-radius: 10px;
+}
+#container #tripma-gallery__top-3-images .short-image__details {
+  padding: 10px 10px;
+}
+#container #tripma-gallery__top-3-images .short-image img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+#container #tripma-gallery__top-3-images .short-image .title {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 600;
+  color: #6E7491;
+  margin: 0;
+  padding: 0;
+}
+#container #tripma-gallery__top-3-images .short-image .price {
+  display: inline-block;
+  float: right;
+  font-size: 18px;
+  font-weight: 600;
+  color: #6E7491;
+  margin: 0;
+  padding: 0;
+}
+#container #tripma-gallery__top-3-images .short-image .description {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #7C8DB0;
+}
+#container #tripma-gallery__top-3-images .short-image a {
+  text-decoration: none;
+  color: #605DEC;
+}
+#container #tripma-gallery__middle-1-image {
+  margin: 0;
+  margin-bottom: 60px;
+}
+#container #tripma-gallery__middle-1-image .big-image {
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(7, 4, 146, 0.1), 0px 24px 60px rgba(6, 47, 125, 0.05), 0px 12px 24px rgba(27, 59, 119, 0.05);
+  width: 100%;
+}
+#container #tripma-gallery__middle-1-image .big-image__details {
+  padding: 10px 10px;
+}
+#container #tripma-gallery__middle-1-image .big-image img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+#container #tripma-gallery__middle-1-image .big-image .title {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 600;
+  color: #6E7491;
+  margin: 0;
+  padding: 0;
+}
+#container #tripma-gallery__middle-1-image .big-image .price {
+  display: inline-block;
+  float: right;
+  font-size: 18px;
+  font-weight: 600;
+  color: #6E7491;
+  margin: 0;
+  padding: 0;
+}
+#container #tripma-gallery__middle-1-image .big-image .description {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #7C8DB0;
+}
+#container #tripma-gallery__middle-1-image .big-image a {
+  text-decoration: none;
+  color: #605DEC;
+}
+#container #tripma-gallery__bottom-3-images {
+  display: flex;
+  margin: 0;
+  margin-bottom: 60px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#container #tripma-gallery__bottom-3-images .short-image {
+  box-shadow: 0px 2px 4px rgba(7, 4, 146, 0.1), 0px 24px 60px rgba(6, 47, 125, 0.05), 0px 12px 24px rgba(27, 59, 119, 0.05);
+  width: 30%;
+  border-radius: 10px;
+}
+#container #tripma-gallery__bottom-3-images .short-image__details {
+  padding: 10px 10px;
+}
+#container #tripma-gallery__bottom-3-images .short-image img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+#container #tripma-gallery__bottom-3-images .short-image .title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #6E7491;
+  margin: 0;
+  padding: 0;
+}
+#container #tripma-gallery__bottom-3-images .short-image .description {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #7C8DB0;
+}
+#container #tripma-gallery__bottom-3-images .short-image a {
+  text-decoration: none;
+  color: #605DEC;
+}
+#container #tripma-gallery .button-wrapper-center {
+  text-align: center;
+}
+#container #tripma-gallery .button-wrapper-center button {
+  border: none;
+  border-radius: 4px;
+  background: #605DEC;
+  color: white;
+  padding: 12px 20px;
+}
+#container #comments {
+  margin-bottom: 140px;
+}
+#container #comments__header {
+  text-align: center;
+  color: #6E7491;
+  font-size: 24px;
+  margin-top: 100px;
+  margin-bottom: 60px;
+}
+#container #comments__header__link {
+  text-decoration: none;
+  color: #605DEC;
+}
+#container #comments__section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#container #comments__section .comment {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+}
+#container #comments__section .comment__col-1 {
+  margin-right: 10px;
+}
+#container #comments__section .comment__username {
+  font-size: 18px;
+  font-weight: 600;
+  color: #6E7491;
+  padding: 0;
+  margin: 0;
+}
+#container #comments__section .comment__user-details {
+  font-size: 18px;
+  font-weight: 400;
+  color: #6E7491;
+  padding: 0;
+  margin: 0;
+}
+#container #comments__section .comment__user-details .color-2 {
+  color: #A1B0CC;
+}
+#container #comments__section .comment__user-rating {
+  margin: 5px 0;
+  padding: 0;
+}
+#container #comments__section .comment__user-rating img {
+  vertical-align: 0px;
+}
+#container #comments__section .comment__user-comment {
+  font-size: 18px;
+  font-weight: 400;
+  color: #27273F;
+  padding: 0;
+  margin: 0;
+}
+#container #comments__section .comment__user-comment .color-2 {
+  color: #605DEC;
+}
+#container #footer-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#container #footer-1 .col {
+  width: 15%;
+}
+#container #footer-1 .col__header {
+  font-size: 18px;
+  font-weight: 700;
+  color: #6E7491;
+}
+#container #footer-1 .col__link {
+  font-size: 16px;
+  font-weight: 400;
+  color: #7C8DB0;
+  text-decoration: none;
+}
+#container #footer-1 .col:first-child img {
+  margin: auto;
+}
+
+#footer-2 {
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#footer-2 .col {
+  width: 45%;
+}
+#footer-2 #col-2 {
+  text-align: right;
+}
+#footer-2 #col-2 #copyright {
+  font-size: 18px;
+  font-weight: 400;
+  color: #7C8DB0;
+}
+
+#signup-window {
+  display: none;
+  position: fixed;
+  padding: 40px;
+  width: 40%;
+  height: max-content;
+  left: 30%;
+  bottom: 15%;
+  background: #FFFFFF;
+  border: 1px solid #CBD4E6;
+  box-shadow: 0px 2px 4px rgba(7, 4, 146, 0.1), 0px 24px 60px rgba(6, 47, 125, 0.05), 0px 12px 24px rgba(27, 59, 119, 0.05);
+  border-radius: 12px;
+  z-index: 1;
+}
+#signup-window__header {
+  width: max-content;
+  display: inline-block;
+}
+#signup-window__close-btn {
+  height: max-content;
+  display: inline-block;
+  float: right;
+  border: none;
+  background: inherit;
+}
+#signup-window__description {
+  color: #7C8DB0;
+}
+#signup-window__login, #signup-window__password {
+  color: #A1B0CC;
+  border: 1px solid #A1B0CC;
+  border-radius: 4px;
+  padding: 8px 12px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+#signup-window__login::placeholder, #signup-window__password::placeholder {
+  color: #7C8DB0;
+}
+#signup-window__terms-check, #signup-window__alerts-check {
+  color: #6E7491;
+}
+#signup-window .check-text {
+  color: #6E7491;
+}
+#signup-window__terms {
+  color: #605DEC;
+  text-decoration: none;
+}
+#signup-window__create-btn {
+  background: #605DEC;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  width: 100%;
+  height: 40px;
+}
+#signup-window .external-login {
+  width: 100%;
+  border: 1px solid #CBD4E6;
+  border-radius: 4px;
+  color: #605DEC;
+  height: 40px;
+  margin-top: 5px;
+}
+#signup-window .external-login .sign-in-icon {
+  margin-top: 4px;
+  float: left;
+  text-align: left;
+}
+
+#cookies {
+  display: none;
+  position: fixed;
+  left: 40px;
+  bottom: 20px;
+  border: #605DEC solid 1px;
+  width: max-content;
+  border-radius: 8px;
+  padding: 5px 10px;
+  background: #E5E5E5;
+  color: #605DEC;
+  z-index: 1;
+}
+#cookies__text {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+#cookies__cancel-btn {
+  float: right;
+  display: inline-block;
+  border: none;
+  background: #E5E5E5;
+}
+#cookies .btn {
+  border: none;
+}
+#cookies__accept-btn {
+  background: #605DEC;
+  border-radius: 4px;
+  color: white;
+}
+
+/*# sourceMappingURL=index.css.map */

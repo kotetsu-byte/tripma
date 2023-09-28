@@ -1,0 +1,277 @@
+$box-shadow: 0px 2px 4px rgba(7, 4, 146, 0.1), 0px 24px 60px rgba(6, 47, 125, 0.05), 0px 12px 24px rgba(27, 59, 119, 0.05);
+
+#tripma-main {
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &__left{
+        width: 49%;
+        display: inline-block;
+    }
+    &__right {
+        width: 49%;
+        & .right-btn {
+            display: inline-block;
+            float: right;
+            background-color: inherit;
+            border: none;
+            color: #7C8DB0;
+            padding: 10px 20px;
+            & #flights-btn {
+                color: #605DEC;
+            }
+        }
+        & #signup-btn {
+            color: white;
+            background: #605DEC;
+            border-radius: 4px;
+            border: none;
+        }
+    }
+}
+
+#container {
+    padding: 20px 40px;
+    & #two-blocks {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        & #left-block {
+            & .typical-input {
+                border: 1px solid #A1B0CC;
+                border-radius: 4px;
+                padding: 8px 12px;
+                margin: 8px;
+            }
+        }
+        & #right-block {
+            & #ticket-search__details__data {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                border: 1px solid #E9E8FC;
+                border-radius: 12px;
+                padding: 16px;
+                &__col-2 {
+                    & #flight-title {
+                        color: #27273F;
+                        font-size: 16px;
+                        font-weight: 400;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    & #flight-key {
+                        color: #7C8DB0;
+                        font-size: 16px;
+                        font-weight: 400;
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+                &__col-3 {
+                    & #flight-duration {
+                        color: #27273F;
+                        font-size: 16px;
+                        font-weight: 400;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    & #flight-timetable {
+                        color: #27273F;
+                        font-size: 16px;
+                        font-weight: 400;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    & #stop-duration {
+                        color: #7C8DB0;
+                        font-size: 16px;
+                        font-weight: 400;
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+            }
+            & #ticket-search__details__prices {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 16px;
+                &__col-1 {
+                    text-align: right;
+                    width: 70%;
+                    & #p1 {
+                        color: #27273F;
+                        font-size: 16px;
+                        font-weight: 600;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    & #p2 {
+                        color: #27273F;
+                        font-size: 16px;
+                        font-weight: 600;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    & #p3 {
+                        color: #27273F;
+                        font-size: 16px;
+                        font-weight: 600;
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+                &__col-2 {
+                    & #p1 {
+                        color: #27273F;
+                        font-size: 16px;
+                        font-weight: 600;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    & #p2 {
+                        color: #27273F;
+                        font-size: 16px;
+                        font-weight: 600;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    & #p3 {
+                        color: #27273F;
+                        font-size: 16px;
+                        font-weight: 600;
+                        margin: 0;
+                        padding: 0;   
+                    }
+                }
+            }
+        }
+    }
+    & #second-two-blocks {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        & #left {
+            width: 20%;
+        }
+        & #right {
+            
+        }
+    }
+    & #footer-1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        & .col {
+            width: 15%;
+            &__header {
+                font-size: 18px;
+                font-weight: 700;
+                color: #6E7491;
+            }
+            &__link {
+                font-size: 16px;
+                font-weight: 400;
+                color: #7C8DB0;
+                text-decoration: none;
+            }
+        }
+        & .col:first-child img {
+            margin: auto;
+        }
+    }
+}
+
+#footer-2 {
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    & .col {
+        width: 45%;
+    }
+    & #col-1 {
+        
+    }
+    & #col-2 {
+        text-align: right;
+        & #copyright {
+            font-size: 18px;
+            font-weight: 400;
+            color: #7C8DB0;
+        }
+    }
+}
+
+#signup-window {
+    display: none;
+    position: fixed;
+    padding: 40px;
+    width: 40%;
+    height: max-content;
+    left: 30%;
+    bottom: 15%;
+    background: #FFFFFF;
+    border: 1px solid #CBD4E6;
+    box-shadow: $box-shadow;
+    border-radius: 12px;
+    z-index: 1;
+    &__header {
+        width: max-content;
+        display: inline-block;
+    }
+    &__close-btn {
+        height: max-content;
+        display: inline-block;
+        float: right;
+        border: none;
+        background: inherit;
+    }
+    &__description {
+        color: #7C8DB0;
+    }
+    &__login, &__password {
+        color: #A1B0CC;
+        border: 1px solid #A1B0CC;
+        border-radius: 4px;
+        padding: 8px 12px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    &__login::placeholder, &__password::placeholder {
+        color: #7C8DB0;
+    }
+    &__terms-check, &__alerts-check {
+        color: #6E7491;
+    }
+    & .check-text {
+        color: #6E7491;
+    }
+    &__terms {
+        color: #605DEC;
+        text-decoration: none;
+    }
+    &__create-btn {
+        background: #605DEC;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        width: 100%;
+        height: 40px;
+    }
+    & .external-login {
+        width: 100%;
+        border: 1px solid #CBD4E6;
+        border-radius: 4px;
+        color: #605DEC;
+        height: 40px;
+        margin-top: 5px;
+        & .sign-in-icon {
+            margin-top: 4px;
+            float: left;
+            text-align: left;
+        }
+    }
+}
